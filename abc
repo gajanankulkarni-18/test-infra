@@ -204,14 +204,20 @@ prepare
 
 DISTRO="$ID-$VERSION_ID"
 case "$DISTRO" in
-"ubuntu-16.04" | "ubuntu-18.04" | "ubuntu-20.04")
+"ubuntu-16.04" | "ubuntu-18.04" )
 	printf -- "Installing %s %s for %s \n" "$PACKAGE_NAME" "$PACKAGE_VERSION" "$DISTRO" |& tee -a "$LOG_FILE"
 	printf -- '\nInstalling dependencies \n' |& tee -a "$LOG_FILE"
 	sudo apt-get update
 	sudo apt-get install -y locales ant  openssl wget tar xz-utils make python xsltproc rsync git zip sed wget tar make perl openssl gcc g++ libncurses-dev libncurses5-dev unixodbc unixodbc-dev libssl-dev openjdk-8-jdk libwxgtk3.0-dev xsltproc fop libxml2-utils |& tee -a "${LOG_FILE}"
 	configureAndInstall |& tee -a "$LOG_FILE"
 	;;
-
+"ubuntu-20.04")
+	printf -- "Installing %s %s for %s \n" "$PACKAGE_NAME" "$PACKAGE_VERSION" "$DISTRO" |& tee -a "$LOG_FILE"
+	printf -- '\nInstalling dependencies \n' |& tee -a "$LOG_FILE"
+	sudo apt-get update
+	sudo apt-get install -y locales ant  openssl wget tar xz-utils make python xsltproc rsync git zip sed wget tar make perl openssl gcc g++ libncurses-dev libncurses5-dev unixodbc unixodbc-dev libssl-dev openjdk-8-jdk xsltproc fop libxml2-utils |& tee -a "${LOG_FILE}"
+	configureAndInstall |& tee -a "$LOG_FILE"
+	;;
 "rhel-7.6" | "rhel-7.7" | "rhel-7.8" )
 	printf -- "Installing %s %s for %s \n" "$PACKAGE_NAME" "$PACKAGE_VERSION" "$DISTRO" |& tee -a "$LOG_FILE"
 	printf -- 'Installing the dependencies for rabbitmq from repository \n' |& tee -a "$LOG_FILE"
