@@ -159,10 +159,10 @@ function configureAndInstall() {
 	# Build Grafana frontend assets
 
     # Apply test case patch
-    cd $GOPATH/src/github.com/grafana/grafana
-    wget -O ArrowDataFrame.test.ts.patch  $PATCH_URL
-    patch --ignore-whitespace packages/grafana-data/src/dataframe/ArrowDataFrame.test.ts < ArrowDataFrame.test.ts.patch
-    rm ArrowDataFrame.test.ts.patch
+  #  cd $GOPATH/src/github.com/grafana/grafana
+   # wget -O ArrowDataFrame.test.ts.patch  $PATCH_URL
+    #patch --ignore-whitespace packages/grafana-data/src/dataframe/ArrowDataFrame.test.ts < ArrowDataFrame.test.ts.patch
+    #rm ArrowDataFrame.test.ts.patch
 
 	# Install PhantomJS
 	printf -- "Installing PhantomJS... \n"
