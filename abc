@@ -14,6 +14,7 @@ CURDIR="$(pwd)"
 
 PHANTOMJS_INSTALL_URL="https://raw.githubusercontent.com/linux-on-ibm-z/scripts/master/PhantomJS/build_phantomjs.sh"
 #PATCH_URL="https://raw.githubusercontent.com/gajanankulkarni-18/test-infra/master/ArrowDataFrame.test.ts.patch"
+PATCH_URL="https://raw.githubusercontent.com/gajanankulkarni-18/test-infra/master/queryResponse.test.ts.patch"
 RICHHISTORY_URL="https://raw.githubusercontent.com/grafana/grafana/3acc318d728cd147971ef1b871bd85237c57a5de/public/app/core/utils/richHistory.test.ts"
 
 GO_VERSION="1.14.2"
@@ -163,7 +164,12 @@ function configureAndInstall() {
    # wget -O ArrowDataFrame.test.ts.patch  $PATCH_URL
     #patch --ignore-whitespace packages/grafana-data/src/dataframe/ArrowDataFrame.test.ts < ArrowDataFrame.test.ts.patch
     #rm ArrowDataFrame.test.ts.patch
-
+	
+	cd $GOPATH/src/github.com/grafana/grafana
+	wget -O queryResponse.test.ts.patch  $PATCH_URL
+	patch --ignore-whitespace packages/grafana-runtime/src/utils/queryResponse.test.ts < queryResponse.test.ts.patch
+	rm queryResponse.test.ts.patch
+	
 	# Install PhantomJS
 	printf -- "Installing PhantomJS... \n"
 
