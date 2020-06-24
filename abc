@@ -13,7 +13,7 @@ PACKAGE_VERSION="7.0.0"
 CURDIR="$(pwd)"
 
 PHANTOMJS_INSTALL_URL="https://raw.githubusercontent.com/linux-on-ibm-z/scripts/master/PhantomJS/build_phantomjs.sh"
-PATCH_URL="https://raw.githubusercontent.com/gajanankulkarni-18/test-infra/master/ArrowDataFrame.test.ts.patch"
+#PATCH_URL="https://raw.githubusercontent.com/gajanankulkarni-18/test-infra/master/ArrowDataFrame.test.ts.patch"
 RICHHISTORY_URL="https://raw.githubusercontent.com/grafana/grafana/3acc318d728cd147971ef1b871bd85237c57a5de/public/app/core/utils/richHistory.test.ts"
 
 GO_VERSION="1.14.2"
