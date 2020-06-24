@@ -146,6 +146,7 @@ function configureAndInstall() {
 	printf -- "Created grafana Directory at 1"
 	#Give permission
 	cd grafana
+	tail -100 /public/app/core/utils/richHistory.test.ts 
 	make deps-go
 	make build-go
 	printf -- 'Build Grafana success \n'
