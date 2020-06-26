@@ -203,7 +203,7 @@ function configureAndInstall() {
 	fi
 
 	# Build Grafana frontend assets
-    sudo wget -O public/app/core/utils/richHistory.test.ts $RICHHISTORY_URL
+    #sudo wget -O public/app/core/utils/richHistory.test.ts $RICHHISTORY_URL
 	make deps-js
 	yarn run jest-ci -u 
 	make build-js
